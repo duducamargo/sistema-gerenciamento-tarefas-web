@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'css/tasks.css' %}">
+    <title>Tasks</title>
+</head>
+
+<body>
+    
+
+    <div id="container_h1">
+        <h1>Tasks</h1>
+    </div>
+
+    <div id="adicionar">
+        <button onclick="window.location.href='{% url 'nova_task' %}'">Nova Tarefa <img src="{% static "img/adicionar.png" %}" alt=""></button>
+    </div>
+
+    <div id="container_tasks">
+        <div class="task">
+            <div class="data">
+                <p class="dia">17</p>
+                <p class="mes">Setembro</p>
+            </div>
+
+            <div class="conteudo_task campos">
+                <div class="atribuicoes">
+                    <p class="membros_campo">Membros</p>
+                    <ul>
+                        <li><img src="{% static "img/user.png" %}"> Rafael</li>
+                        <li><img src="{% static "img/user.png" %}"> Leonardo</li>
+                    </ul>
+
+                </div>
+
+                <div class="informacoes campos">
+                    <p class="tarefas_campo">Tarefas</p>
+                    <ul>
+                        <li><input type="checkbox" id="checkbox1">
+                            <label for="checkbox1">Tarefa 1</label>
+                        </li>
+                        <li><input type="checkbox" id="checkbox1">
+                            <label for="checkbox1">Tarefa 2</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="status campos">
+                    <p class="status_campo">Status</p>
+                    <p class="concluida">Concluída</p>
+                </div>
+
+                <div class="editar">
+                    <button onclick="window.location.href='{% url 'editar_task' %}'">Editar<img src="{% static "img/editar.png" %}"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="task">
+            <div class="data">
+                <p class="dia">2</p>
+                <p class="mes">Outubro</p>
+            </div>
+
+            <div class="conteudo_task campos">
+                <div class="atribuicoes">
+                    <p class="membros_campo">Membros</p>
+                    <ul>
+                        <li><img src="{% static "img/user.png" %}"> Eduardo</li>
+                        <li><img src="{% static "img/user.png" %}"> Leonardo</li>
+                    </ul>
+
+                </div>
+
+                <div class="informacoes campos">
+                    <p class="tarefas_campo">Tarefas</p>
+                    <ul>
+                        <li><input type="checkbox" id="checkbox1">
+                            <label for="checkbox1">Tarefa 1</label>
+                        </li>
+                        <li><input type="checkbox" id="checkbox1">
+                            <label for="checkbox1">Tarefa 2</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="status campos">
+                    <p class="status_campo">Status</p>
+                    <p class="a_fazer">A Fazer</p>
+                </div>
+
+                <div class="editar">
+                    <button onclick="window.location.href='{% url 'editar_task' %}'">Editar<img src="{% static "img/editar.png" %}"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -18,7 +18,7 @@ def login(request):
 
         if check_password(senha, usuario.senha):
             messages.success(request, "Login realizado com sucesso!")
-            return redirect("home")
+            return redirect("tasks")
         else:
             messages.error(request, "Senha incorreta.")
             return render(request, "cadastro/login.html")

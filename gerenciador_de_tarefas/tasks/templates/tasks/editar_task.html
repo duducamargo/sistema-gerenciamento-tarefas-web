@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'css/nova_task.css' %}">
+    <title>Editar Task</title>
+</head>
+
+<body>
+    <div id="container_h1">
+        <h1>Editar Task</h1>
+    </div>
+
+    <div id="conteudo">
+        <form action="" method="post" id="nova_task">
+            {% csrf_token %}
+
+            <h2>Alterar Task</h2>
+
+            <input type="text" id="nome" name="nome" placeholder="Nome" value="Nome">
+
+            <select name="atribuicoes" id="atribuicoes">
+                <option value="">Atribua essa Task para Alguém</option>
+                <option value="Eduardo">Eduardo</option>
+                <option value="Leonardo">Leonardo</option>
+                <option value="Rafael">Rafael</option>
+            </select>
+
+            <input type="text" name="task" id="task" placeholder="Task">
+
+            <select name="status" id="status">
+                <option value="">Atribua o Status dessa Task</option>
+                <option value="concluida">Concluída</option>
+                <option value="andamento">Em Andamento</option>
+                <option value="a_fazer">A Fazer</option>
+            </select>
+
+            <input type="date" id="data" name="data">
+
+            <button type="submit">Alterar Task <img src="{% static "img/editar.png" %}"
+                    alt=""></button>
+        </form>
+
+        <div id="parte_direita">
+            <h2>Membros</h2>
+
+            <ul id="membros_lista">
+                <li><img src="{% static "img/user.png" %}" alt="">Eduardo</li>
+
+                <li><img src="{% static "img/user.png" %}" alt="">Leonardo</li>
+
+                <li><img src="{% static "img/user.png" %}" alt="">Rafael</li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
