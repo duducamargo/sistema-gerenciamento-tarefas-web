@@ -19,12 +19,13 @@
 
 <body>
     
+
     <div id="container_h1">
         <h1>Tasks</h1>
     </div>
 
     <div id="adicionar">
-        <button>Nova Tarefa <img src="{% static "img/adicionar.png" %}" alt=""></button>
+        <button onclick="window.location.href='{% url 'nova_task' %}'">Nova Tarefa <img src="{% static "img/adicionar.png" %}" alt=""></button>
     </div>
 
     <div id="container_tasks">
@@ -62,7 +63,7 @@
                 </div>
 
                 <div class="editar">
-                    <button>Editar<img src="{% static "img/editar.png" %}"></button>
+                    <button onclick="window.location.href='{% url 'editar_task' %}'">Editar<img src="{% static "img/editar.png" %}"></button>
                 </div>
             </div>
         </div>
@@ -101,7 +102,7 @@
                 </div>
 
                 <div class="editar">
-                    <button>Editar<img src="{% static "img/editar.png" %}"></button>
+                    <button onclick="window.location.href='{% url 'editar_task' %}'">Editar<img src="{% static "img/editar.png" %}"></button>
                 </div>
             </div>
         </div>
