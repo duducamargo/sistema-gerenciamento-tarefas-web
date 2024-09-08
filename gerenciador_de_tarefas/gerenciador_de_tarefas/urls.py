@@ -5,5 +5,6 @@ from cadastro import views as CadastroViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', CadastroViews.login)
+    path('login/', CadastroViews.login, name='login'),
+    path('cadastro/', CadastroViews.cadastro, name='cadastro'),
 ]

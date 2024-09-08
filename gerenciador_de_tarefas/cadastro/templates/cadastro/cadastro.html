@@ -13,27 +13,29 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
 
-        <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <title>Login</title>
+        <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <title>Cadastro</title>
 </head>
 
 <body>
     <div id="conteudo">
 
         <div id="parte_esquerda">
-            <img src="{% static "img/background.jpg" %}">
-        </div>
+            <h1>Realize o seu Cadastro</h1>
 
-        <div id="parte_direita">
-            <h1>Realize o seu Login</h1>
+            <p id="cadastro" name="cadastro">Já tem uma conta?<span id="span_cadastro" onclick="window.location.href='{% url 'login' %}'">Login</span></p>
 
-            <p id="cadastro" name="cadastro">Ainda não tem uma conta?<span id="span_cadastro" onclick="window.location.href='{% url 'cadastro' %}'">Cadastro</span></p>
+            <div id="campo_nome">
+                <input type="text" id="primeiro_nome" name="primeiro_nome" placeholder="Primeiro Nome">
 
+                <input type="text" id="segundo_nome" name="segundo_nome" placeholder="Segundo Nome">
+            </div>
+            
             <input type="text" id="email" name="email" placeholder="Email">
 
             <input type="password" id="senha" name="senha" placeholder="Insira a sua Senha...">
 
-            <button id="login" name="login">Login</button>
+            <button id="login" name="login">Cadastre-se</button>
 
             <div class="text-with-lines">Acompanhe nosso Repositório</div>
 
@@ -43,7 +45,10 @@
                     <p>Github</p>
                 </div>
             </div>
+        </div>
 
+        <div id="parte_direita">
+            <img src="{% static "img/cadastro.jpeg" %}">
         </div>
     </div>
 </body>
