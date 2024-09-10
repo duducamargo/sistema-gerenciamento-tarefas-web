@@ -7,11 +7,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', CadastroViews.login, name='login'),
     path('cadastro/', CadastroViews.cadastro, name='cadastro'),
-<<<<<<< HEAD
-    path('tasks/', include('tasks.urls'))
-=======
+
     path('tasks/', TaskViews.tasks, name='tasks'),
     path('nova_task/', TaskViews.nova_task, name='nova_task'),
     path('editar_task/', TaskViews.editar_task, name='editar_task'),
->>>>>>> c928e0faaab417dc7645416da4b4c0506e9d9f29
+
 ]

@@ -23,7 +23,7 @@
     </div>
 
     <div id="conteudo">
-        <form action="" method="post" id="nova_task">
+        <form action="{% url 'tasks' %}" method="post" id="nova_task">
             {% csrf_token %}
 
             <h2>Cadastrar Task</h2>
@@ -37,7 +37,7 @@
                 <option value="Rafael">Rafael</option>
             </select>
 
-            <input type="text" name="task" id="task" placeholder="Task">
+            <input type="text" name="descricao" id="task" placeholder="Descrição">
 
             <input type="date" id="data" name="data">
 
