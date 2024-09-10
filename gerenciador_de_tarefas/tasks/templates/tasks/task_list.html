@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de tasks</title>
+</head>
+<body>
+    <h1>Tasks: </h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.nome }} - {{ task.descricao }} - {{ task.criado_em }}</li>
+        {% empty %}
+            <li>Sem tasks disponiveis.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_task' %}">ADICIONAR TASK</a>
+</body>
+</html>
