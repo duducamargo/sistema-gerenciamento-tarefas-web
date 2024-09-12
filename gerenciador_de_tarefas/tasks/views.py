@@ -4,6 +4,9 @@ from .models import Task
 from cadastro.models import Usuario
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.http import HttpResponse
+from .forms import TaskForm
+from .models import Board
 
 def tasks(request):
     return render(request, 'tasks/tasks.html')
@@ -52,4 +55,4 @@ def editar_task(request):
     if request.method == "POST":
             return render(request, "tasks/tasks.html")
     
-    return render(request, 'tasks/editar_task.html') 
+    return render(request, 'tasks/editar_task.html')
