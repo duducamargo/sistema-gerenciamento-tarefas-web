@@ -18,14 +18,12 @@
 </head>
 
 <body>
-    
-
     <div id="container_h1">
         <h1>Tasks</h1>
     </div>
 
     <div id="adicionar">
-        <button onclick="window.location.href='{% url 'nova_task' %}'">Nova Tarefa <img src="{% static "img/adicionar.png" %}" alt=""></button>
+        <button onclick="window.location.href='{% url 'nova_task' %}'">Nova Tarefa <img src="{% static 'img/adicionar.png' %}" alt=""></button>
     </div>
 
     <div id="container_tasks">
@@ -40,17 +38,23 @@
                 <div class="atribuicoes">
                     <p class="membros_campo">Membros</p>
                     <ul>
-                        <li><img src="{% static "img/user.png" %}">{{task.atribuido_para_id}}</li>
-                        <li><img src="{% static "img/user.png" %}">{{task.criado_por_id}}</li>
+                        <li>
+                            <img src="{% static 'img/user.png' %}">
+                            {{ task.atribuido_para.primeiro_nome }}
+                        </li>
+                        <li>
+                            <img src="{% static 'img/user.png' %}">
+                            {{ task.criado_por.primeiro_nome }}
+                        </li>
                     </ul>
-
                 </div>
 
                 <div class="informacoes campos">
                     <p class="tarefas_campo">Tarefas</p>
                     <ul>
-                        <li><input type="checkbox" id="checkbox1">
-                            <label for="checkbox1">{{task.descricao}}</label>
+                        <li>
+                            <input type="checkbox" id="checkbox1">
+                            <label for="checkbox1">{{ task.descricao }}</label>
                         </li>
                     </ul>
                 </div>
@@ -61,15 +65,12 @@
                 </div>
 
                 <div class="editar">
-                    <button onclick="window.location.href='{% url 'editar_task' %}'">Editar<img src="{% static "img/editar.png" %}"></button>
+                    <button onclick="window.location.href='{% url 'editar_task' %}'">Editar<img src="{% static 'img/editar.png' %}"></button>
                 </div>
             </div>
         </div>
-          {% endfor %}
-
+        {% endfor %}
     </div>
-
-
 </body>
 
 </html>
