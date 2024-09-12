@@ -2,63 +2,60 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet" />
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="{% static 'css/nova_task.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nova_task.css' %}" />
     <title>Nova Task</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="container_h1">
-        <h1>Nova Task</h1>
+      <h1>Nova Task</h1>
     </div>
 
     <div id="conteudo">
-        <form action="" method="post" id="nova_task">
-            {% csrf_token %}
+      <form "{% url 'nova_task' %}" method="post" id="nova_task">
+        {% csrf_token %}
 
-            <h2>Cadastrar Task</h2>
+        <h2>Cadastrar Task</h2>
 
-            <input type="text" id="nome" name="nome" placeholder="Nome">
+        <input type="text" id="nome" name="nome" placeholder="Nome" />
 
-            <select name="atribuicoes" id="atribuicoes">
-                <option value="">Atribua essa Task para Alguém</option>
-                <option value="Eduardo">Eduardo</option>
-                <option value="Leonardo">Leonardo</option>
-                <option value="Rafael">Rafael</option>
-            </select>
+        <select name="atribuicoes" id="atribuicoes">
+          <option value="">Atribua essa Task para Alguém</option>
+          {% for usuario in usuarios %}
+          <option value="{{ usuario.id_usuario }}">
+            {{ usuario.primeiro_nome }} {{ usuario.ultimo_nome }}
+          </option>
+          {% endfor %}
+        </select>
 
-            <input type="text" name="task" id="task" placeholder="Task">
+        <input type="text" name="task" id="task" placeholder="Task" />
+        <input type="date" id="data" name="data" />
 
-            <input type="date" id="data" name="data">
+        <button type="submit">Adicionar Task</button>
+      </form>
 
-            <button type="submit">Adicionar Task <img src="{% static "img/adicionar.png" %}"
-                    alt=""></button>
-        </form>
+      <div id="parte_direita">
+        <h2>Membros</h2>
 
-        <div id="parte_direita">
-            <h2>Membros</h2>
-
-            <ul id="membros_lista">
-                <li><img src="{% static "img/user.png" %}" alt="">Eduardo</li>
-
-                <li><img src="{% static "img/user.png" %}" alt="">Leonardo</li>
-
-                <li><img src="{% static "img/user.png" %}" alt="">Rafael</li>
-            </ul>
-        </div>
+        <ul id="membros_lista">
+          {% for usuario in usuarios %}
+          <li>
+            <img src="{% static "img/user.png" %}" alt="">{{ usuario.primeiro_nome }} {{usuario.ultimo_nome}}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
-
-
-</body>
-
+  </body>
 </html>
