@@ -201,7 +201,7 @@ h1 {
     font-size: 20px;
 }
 
-.andamento {
+.Andamento {
     margin-top: 10px;
     background-color: #ff8800b6;
     border: 1px solid #ff8800;
@@ -211,7 +211,7 @@ h1 {
     
 }
 
-.concluida {
+.Concluida {
     margin-top: 10px;
     background-color: #008000b4;
     border: 1px solid #008000;
@@ -220,7 +220,7 @@ h1 {
     border-radius: 8px;
 }
 
-.a_fazer {
+.Pendente {
     margin-top: 10px;
     background-color: #3c3c3cad;
     border: 1px solid #3c3c3c;

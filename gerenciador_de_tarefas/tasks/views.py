@@ -29,6 +29,7 @@ def nova_task(request):
 
         nova_task.data_vencimento = request.POST.get("data")
         nova_task.descricao = request.POST.get("task")
+        nova_task.status = "Pendente"
 
         usuario_logado_id = request.session.get('usuario_id')
         if usuario_logado_id:
