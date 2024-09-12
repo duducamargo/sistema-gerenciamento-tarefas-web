@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 from .models import Usuario
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import check_password
 from django.contrib import messages
-
 
 def login(request):
     if request.method == "POST":
@@ -17,6 +16,8 @@ def login(request):
             return render(request, "cadastro/login.html")
 
         if check_password(senha, usuario.senha):
+            # Armazena o ID do usuário na sessão
+            request.session['usuario_id'] = usuario.id_usuario
             messages.success(request, "Login realizado com sucesso!")
             return redirect("tasks")
         else:
@@ -24,6 +25,7 @@ def login(request):
             return render(request, "cadastro/login.html")
 
     return render(request, "cadastro/login.html")
+
 
 
 @csrf_protect
