@@ -29,6 +29,7 @@
     </div>
 
     <div id="container_tasks">
+        {% for task in tasks %}
         <div class="task">
             <div class="data">
                 <p class="dia">17</p>
@@ -39,8 +40,8 @@
                 <div class="atribuicoes">
                     <p class="membros_campo">Membros</p>
                     <ul>
-                        <li><img src="{% static "img/user.png" %}"> Rafael</li>
-                        <li><img src="{% static "img/user.png" %}"> Leonardo</li>
+                        <li><img src="{% static "img/user.png" %}">{{task.atribuido_para_id}}</li>
+                        <li><img src="{% static "img/user.png" %}">{{task.criado_por_id}}</li>
                     </ul>
 
                 </div>
@@ -49,10 +50,7 @@
                     <p class="tarefas_campo">Tarefas</p>
                     <ul>
                         <li><input type="checkbox" id="checkbox1">
-                            <label for="checkbox1">Tarefa 1</label>
-                        </li>
-                        <li><input type="checkbox" id="checkbox1">
-                            <label for="checkbox1">Tarefa 2</label>
+                            <label for="checkbox1">{{task.descricao}}</label>
                         </li>
                     </ul>
                 </div>
@@ -67,68 +65,8 @@
                 </div>
             </div>
         </div>
+          {% endfor %}
 
-        <div class="task">
-            <div class="data">
-                <p class="dia">2</p>
-                <p class="mes">Outubro</p>
-            </div>
-
-            <div class="conteudo_task campos">
-                <div class="atribuicoes">
-                    <p class="membros_campo">Membros</p>
-                    <ul>
-                        <li><img src="{% static "img/user.png" %}"> Eduardo</li>
-                        <li><img src="{% static "img/user.png" %}"> Leonardo</li>
-                    </ul>
-
-                </div>
-
-                <div class="informacoes campos">
-                    <p class="tarefas_campo">Tarefas</p>
-                    <ul>
-                        <li><input type="checkbox" id="checkbox1">
-                            <label for="checkbox1">Tarefa 1</label>
-                        </li>
-                        <li><input type="checkbox" id="checkbox1">
-                            <label for="checkbox1">Tarefa 2</label>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="status campos">
-                    <p class="status_campo">Status</p>
-                    <p class="a_fazer">A Fazer</p>
-                </div>
-
-                <div class="editar">
-                    <button onclick="window.location.href='{% url 'editar_task' %}'">Editar<img src="{% static "img/editar.png" %}"></button>
-                </div>
-            </div>
-        </div>
-
-
-
-<!-- ESTA PORÇAO DE CODIGO FOI FEITA PARA TESTAR SE AS TASKS ESTAVAM
-APARECENDO NA TELA DE TASKS
-
-        <div class="task">
-            <table>
-                <tr>
-                    <th>nome</th>
-                    <th>descricao</th>
-                    <th>data</th>
-                </tr>
-                {% for task in tasks %}
-                <tr>
-                    <td>{{task.id}}</td>
-                    <td>{{task.nome}}</td>
-                    <td>{{task.data}}</td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
-        -->
     </div>
 
 

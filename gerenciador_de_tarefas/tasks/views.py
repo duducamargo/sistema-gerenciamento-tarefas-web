@@ -5,11 +5,10 @@ from cadastro.models import Usuario
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponse
-from .forms import TaskForm
-from .models import Board
 
 def tasks(request):
-    return render(request, 'tasks/tasks.html')
+    tasks = Task.objects.all()
+    return render(request, 'tasks/tasks.html', {'tasks': tasks})
 
 from cadastro.models import Usuario
 
