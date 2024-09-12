@@ -28,43 +28,43 @@
 
             <h2>Alterar Task</h2>
 
-            <input type="text" id="nome" name="nome" placeholder="Nome" value="Nome">
+            <input type="text" id="nome" name="nome" placeholder="Nome" value="{{ task.nome }}">
 
             <select name="atribuicoes" id="atribuicoes">
                 <option value="">Atribua essa Task para Alguém</option>
-                <option value="Eduardo">Eduardo</option>
-                <option value="Leonardo">Leonardo</option>
-                <option value="Rafael">Rafael</option>
+                {% for usuario in usuarios %}
+                <option value="{{ usuario.id_usuario }}">
+                {{ usuario.primeiro_nome }} {{ usuario.ultimo_nome }}
+                </option>
+                {% endfor %}
             </select>
 
-            <input type="text" name="task" id="task" placeholder="Task">
+            <input type="text" name="task" id="task" placeholder="Task" value="{{ task.descricao }}">
 
             <select name="status" id="status">
                 <option value="">Atribua o Status dessa Task</option>
-                <option value="concluida">Concluída</option>
-                <option value="andamento">Em Andamento</option>
-                <option value="a_fazer">A Fazer</option>
+                <option value="Concluida" {% if task.status == 'Concluida' %}selected{% endif %}>Concluída</option>
+                <option value="Fazendo" {% if task.status == 'Fazendo' %}selected{% endif %}>Fazendo</option>
+                <option value="Pendente" {% if task.status == 'Pendente' %}selected{% endif %}>Pendente</option>
             </select>
 
-            <input type="date" id="data" name="data">
+            <input type="date" id="data" name="data" value="{{ task.data_vencimento|date:'Y-m-d' }}">
 
-            <button type="submit">Alterar Task <img src="{% static "img/editar.png" %}"
-                    alt=""></button>
+            <button type="submit">Alterar Task <img src="{% static 'img/editar.png' %}" alt=""></button>
         </form>
 
         <div id="parte_direita">
             <h2>Membros</h2>
 
             <ul id="membros_lista">
-                <li><img src="{% static "img/user.png" %}" alt="">Eduardo</li>
-
-                <li><img src="{% static "img/user.png" %}" alt="">Leonardo</li>
-
-                <li><img src="{% static "img/user.png" %}" alt="">Rafael</li>
+                {% for usuario in usuarios %}
+                <li>
+                    <img src="{% static "img/user.png" %}" alt="">{{ usuario.primeiro_nome }} {{usuario.ultimo_nome}}
+                </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
-
 
 </body>
 

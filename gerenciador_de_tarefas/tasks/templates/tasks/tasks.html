@@ -65,7 +65,7 @@
           </div>
 
           <div class="editar">
-            <button onclick="window.location.href='{% url 'editar_task' %}'">
+            <button onclick="window.location.href='{% url 'editar_task' task.id %}'">
               Editar<img src="{% static "img/editar.png" %}">
             </button>
           </div>
