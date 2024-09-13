@@ -4,6 +4,13 @@ from .models import Usuario
 from django.contrib.auth.hashers import check_password, make_password
 from django.contrib import messages
 
+def login_required(view_func):
+    def wrapper(request, *args, **kwargs):
+        if 'usuario_id' not in request.session:
+            return redirect('login') 
+        return view_func(request, *args, **kwargs)
+    return wrapper
+
 def login(request):
     if request.method == "POST":
         email = request.POST.get("email")
@@ -16,16 +23,14 @@ def login(request):
             return render(request, "cadastro/login.html")
 
         if check_password(senha, usuario.senha):
-            request.session['usuario_id'] = usuario.id_usuario
+            request.session['usuario_id'] = usuario.id_usuario 
             messages.success(request, "Login realizado com sucesso!")
-            return redirect("tasks")
+            return redirect("tasks") 
         else:
             messages.error(request, "Senha incorreta.")
             return render(request, "cadastro/login.html")
 
     return render(request, "cadastro/login.html")
-
-
 
 @csrf_protect
 def cadastro(request):
@@ -34,9 +39,9 @@ def cadastro(request):
         novo_usuario.primeiro_nome = request.POST.get("primeiro_nome")
         novo_usuario.ultimo_nome = request.POST.get("ultimo_nome")
         novo_usuario.email = request.POST.get("email")
-        novo_usuario.senha = make_password(request.POST.get("senha"))
+        novo_usuario.senha = make_password(request.POST.get("senha")) 
         novo_usuario.save()
 
-        return redirect("login")
+        return redirect("login")  
 
     return render(request, "cadastro/cadastro.html")

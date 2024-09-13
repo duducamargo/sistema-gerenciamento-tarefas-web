@@ -24,7 +24,7 @@
 
     <div id="adicionar">
       <button onclick="window.location.href='{% url 'nova_task' %}'">
-        Nova Tarefa <img src="{% static "img/adicionar.png" %}" alt="">
+        Nova Tarefa <img src="{% static 'img/adicionar.png' %}" alt="" />
       </button>
     </div>
 
@@ -38,39 +38,39 @@
 
         <div class="conteudo_task campos">
           <div class="atribuicoes">
-            <p class="membros_campo">Membros</p>
+            <p class="membros_campo">Membro(s)</p>
             <ul>
               <li>
-                <img src="{% static "img/user.png" %}">{{task.atribuido_para.primeiro_nome}}
-              </li>
-              <li>
-                <img src="{% static "img/user.png" %}">{{task.criado_por.primeiro_nome}}
+                <img src="{% static 'img/user.png' %}" />
+                {{ task.atribuido_para.primeiro_nome }} {{ task.atribuido_para.ultimo_nome }}
               </li>
             </ul>
           </div>
 
           <div class="informacoes campos">
-            <p class="tarefas_campo">Tarefas</p>
+            <p class="tarefas_campo">Tarefa(s)</p>
             <ul>
               <li>
-                <input type="checkbox" id="checkbox1" />
-                <label for="checkbox1">{{task.descricao}}</label>
+                {% comment %} <input type="checkbox" id="checkbox1" /> {% endcomment %}
+                <label for="checkbox1">{{ task.descricao }}</label>
               </li>
             </ul>
           </div>
 
           <div class="status campos">
             <p class="status_campo">Status</p>
-            <p class="{{task.status}}">{{task.status}}</p>
+            <p class="{{ task.status }}">{{ task.status }}</p>
           </div>
 
           <div class="editar">
             <button onclick="window.location.href='{% url 'editar_task' task.id %}'">
-              Editar<img src="{% static "img/editar.png" %}">
+              Editar<img src="{% static 'img/editar.png' %}" />
             </button>
           </div>
         </div>
       </div>
+      {% empty %}
+      <p>Nenhuma tarefa encontrada.</p>
       {% endfor %}
     </div>
   </body>
