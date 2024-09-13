@@ -33,8 +33,8 @@
             <select name="atribuicoes" id="atribuicoes">
                 <option value="">Atribua essa Task para Alguém</option>
                 {% for usuario in usuarios %}
-                <option value="{{ usuario.id_usuario }}">
-                {{ usuario.primeiro_nome }} {{ usuario.ultimo_nome }}
+                <option value="{{ usuario.id_usuario }}" {% if usuario.id_usuario == task.atribuicao %}selected{% endif %}>
+                    {{ usuario.primeiro_nome }} {{ usuario.ultimo_nome }}
                 </option>
                 {% endfor %}
             </select>
@@ -50,7 +50,7 @@
 
             <input type="date" id="data" name="data" value="{{ task.data_vencimento|date:'Y-m-d' }}">
 
-            <button type="submit">Alterar Task <img src="{% static 'img/editar.png' %}" alt=""></button>
+            <button type="submit" class="alterar">Alterar Task <img src="{% static 'img/editar.png' %}" alt=""></button>
         </form>
 
         <div id="parte_direita">
@@ -66,6 +66,27 @@
         </div>
     </div>
 
+    <form id="editar" action="{% url 'deletar_task' task.id %}" method="post" style="width: 90%; margin: auto; margin-bottom: 40px;">
+        {% csrf_token %}
+        <button type="submit" style="
+            width: 100%;
+            height: 50px;
+            border-radius: 8px;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ad0000;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        ">
+            Deletar Task
+        </button>
+    </form>
 </body>
 
 </html>

@@ -169,3 +169,8 @@ button:hover {
         opacity: 1;
     }
 }
+
+form#editar {
+    width: 90%;
+    background-color: transparent;
+}

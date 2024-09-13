@@ -26,6 +26,7 @@ def tasks(request):
 
 from cadastro.models import Usuario
 
+
 @login_required
 @csrf_protect
 def nova_task(request):
@@ -60,9 +61,7 @@ def nova_task(request):
 
         nova_task.save()
 
-        return redirect(
-            "tasks"
-        )
+        return redirect("tasks")
 
     usuarios = Usuario.objects.all()
     return render(request, "tasks/nova_task.html", {"usuarios": usuarios})
@@ -99,3 +98,14 @@ def editar_task(request, id):
     return render(
         request, "tasks/editar_task.html", {"task": task, "usuarios": usuarios}
     )
+
+
+@login_required
+def deletar_task(request, id):
+    task = get_object_or_404(Task, id=id)
+    if request.method == "POST":
+        task.delete()
+        return redirect(
+            "tasks"
+        )  
+    return redirect("tasks")
