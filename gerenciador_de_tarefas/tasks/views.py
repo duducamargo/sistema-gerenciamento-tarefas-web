@@ -109,3 +109,8 @@ def deletar_task(request, id):
             "tasks"
         )  
     return redirect("tasks")
+
+def logout(request):
+    if 'usuario_id' in request.session:
+        del request.session['usuario_id'] 
+    return redirect('login') 

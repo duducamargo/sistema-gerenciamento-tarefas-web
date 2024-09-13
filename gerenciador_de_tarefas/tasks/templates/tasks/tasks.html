@@ -18,6 +18,16 @@
   </head>
 
   <body>
+
+    <img 
+  style="position: absolute; right: 10px; width: 20px; top: 10px; cursor: pointer" 
+  src="{% static 'img/sair.png' %}" 
+  alt="" 
+  id="sair" 
+  onclick="window.location.href='{% url 'logout' %}'"
+/>
+
+    
     <div id="container_h1">
       <h1>Tasks</h1>
     </div>

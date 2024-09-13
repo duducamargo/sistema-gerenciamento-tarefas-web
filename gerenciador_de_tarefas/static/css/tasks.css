@@ -274,3 +274,9 @@ h1 {
         opacity: 1;
     }
 }
+
+#container_h1 img {
+    position: absolute;
+    right: 0px;
+    width: 30px;
+}

@@ -8,4 +8,5 @@ urlpatterns = [
     path("", CadastroViews.login, name="login"),
     path("cadastro/", CadastroViews.cadastro, name="cadastro"),
     path("tasks/", include("tasks.urls")),
+    
 ]
