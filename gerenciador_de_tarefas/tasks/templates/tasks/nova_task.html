@@ -30,12 +30,11 @@
       <ul>
           <li onclick="window.location.href='{% url 'tasks' %}'">Home</li>
           <li>Minha Conta</li>
-          <li>Logout <img 
+          <li onclick="window.location.href='{% url 'logout' %}'">Logout <img 
             style=" width: 16px; top: 10px; cursor: pointer" 
             src="{% static 'img/sair.png' %}" 
             alt="" 
             id="sair" 
-            onclick="window.location.href='{% url 'logout' %}'"
           /></li>
       </ul>
   </header>

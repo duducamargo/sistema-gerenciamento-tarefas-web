@@ -2,57 +2,84 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
 
-        <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'img/logo.png' %}"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}" />
     <title>Cadastro</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="conteudo">
+      <form action="{% url 'cadastro' %}" method="post" id="parte_esquerda">
+        {% csrf_token %}
 
-        <form action="{% url 'cadastro' %}" method="post" id="parte_esquerda">
-            {% csrf_token %}
+        <h1>Realize o seu Cadastro</h1>
 
-            <h1>Realize o seu Cadastro</h1>
+        <p id="cadastro" name="cadastro">
+          Já tem uma conta?<span
+            id="span_cadastro"
+            onclick="window.location.href='{% url 'login' %}'"
+            >Login</span
+          >
+        </p>
 
-            <p id="cadastro" name="cadastro">Já tem uma conta?<span id="span_cadastro" onclick="window.location.href='{% url 'login' %}'">Login</span></p>
+        <div id="campo_nome">
+          <input
+            type="text"
+            id="primeiro_nome"
+            name="primeiro_nome"
+            placeholder="Primeiro Nome"
+          />
 
-            <div id="campo_nome">
-                <input type="text" id="primeiro_nome" name="primeiro_nome" placeholder="Primeiro Nome">
-
-                <input type="text" id="ultimo_nome" name="ultimo_nome" placeholder="Último Nome">
-            </div>
-            
-            <input type="text" id="email" name="email" placeholder="Email">
-
-            <input type="password" id="senha" name="senha" placeholder="Insira a sua Senha...">
-
-            <button id="login" name="login" type="submit">Cadastre-se</button>
-
-            <div class="text-with-lines">Acompanhe nosso Repositório</div>
-
-            <div id="campo_baixo">
-                <div id="github" onclick="window.location.href='https://github.com/duducamargo/sistema-gerenciamento-tarefas-web'">
-                    <img src="{% static "img/github.png" %}" alt="github">
-                    <p>Github</p>
-                </div>
-            </div>
-        </form>
-
-        <div id="parte_direita">
-            <img src="{% static "img/cadastro.jpeg" %}">
+          <input
+            type="text"
+            id="ultimo_nome"
+            name="ultimo_nome"
+            placeholder="Último Nome"
+          />
         </div>
-    </div>
-</body>
 
+        <input type="text" id="email" name="email" placeholder="Email" />
+
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="Insira a sua Senha..."
+        />
+
+        <button id="login" name="login" type="submit">Cadastre-se</button>
+
+        <div class="text-with-lines">Acompanhe nosso Repositório</div>
+
+        <div id="campo_baixo">
+          <div
+            id="github"
+            onclick="window.location.href='https://github.com/duducamargo/sistema-gerenciamento-tarefas-web'"
+          >
+            <img src="{% static "img/github.png" %}" alt="github">
+            <p>Github</p>
+          </div>
+        </div>
+      </form>
+
+      <div id="parte_direita"><img src="{% static "img/cadastro.jpeg" %}"></div>
+    </div>
+  </body>
 </html>
