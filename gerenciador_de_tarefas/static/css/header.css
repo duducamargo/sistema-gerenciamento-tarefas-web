@@ -1,0 +1,30 @@
+header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+header ul{
+    justify-content: end;
+    align-items: center;
+    display: flex;
+}
+
+header ul li {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+    margin-right: 50px;
+    transition: transform 0.3s;
+    backface-visibility: hidden;
+    transform: translateZ(0); 
+}
+
+header ul li img {
+    margin-left: 10px;
+}
+
+header ul li:hover {
+    transform: translateY(-2px);
+}

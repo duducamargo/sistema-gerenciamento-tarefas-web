@@ -5,4 +5,5 @@ class Usuario(models.Model):
     email = models.EmailField(unique=True) 
     primeiro_nome = models.CharField(max_length=50)
     ultimo_nome = models.CharField(max_length=50)
+    foto_perfil = models.CharField(max_length=100, default="foto_perfil_1.png")
     senha = models.CharField(max_length=255) 

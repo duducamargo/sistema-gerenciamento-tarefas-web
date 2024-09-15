@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,20 +13,32 @@
       rel="stylesheet"
     />
 
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/logo.png' %}">
+
     <link rel="stylesheet" href="{% static 'css/tasks.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
     <title>Tasks</title>
   </head>
 
   <body>
 
-    <img 
-  style="position: absolute; right: 10px; width: 20px; top: 10px; cursor: pointer" 
-  src="{% static 'img/sair.png' %}" 
-  alt="" 
-  id="sair" 
-  onclick="window.location.href='{% url 'logout' %}'"
-/>
-
+    <header>
+      <h1 style="cursor: pointer" style="cursor: pointer">TaskFlow <img 
+        style=" width: 26px; top: 10px; cursor: pointer" 
+        src="{% static 'img/logo.png' %}" 
+      /></h1>
+      <ul>
+          <li>Home</li>
+          <li>Minha Conta</li>
+          <li>Logout <img 
+            style=" width: 16px; top: 10px; cursor: pointer" 
+            src="{% static 'img/sair.png' %}" 
+            alt="" 
+            id="sair" 
+            onclick="window.location.href='{% url 'logout' %}'"
+          /></li>
+      </ul>
+  </header>
     
     <div id="container_h1">
       <h1>Tasks</h1>
@@ -51,7 +63,7 @@
             <p class="membros_campo">Membro(s)</p>
             <ul>
               <li>
-                <img src="{% static 'img/user.png' %}" />
+                <img src="{% static 'img/polar-bear.png' %}" />
                 {{ task.atribuido_para.primeiro_nome }} {{ task.atribuido_para.ultimo_nome }}
               </li>
             </ul>

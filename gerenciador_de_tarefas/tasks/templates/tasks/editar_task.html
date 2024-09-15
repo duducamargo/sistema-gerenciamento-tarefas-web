@@ -13,11 +13,32 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet" />
 
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/logo.png' %}">
+
     <link rel="stylesheet" href="{% static 'css/nova_task.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
     <title>Editar Task</title>
 </head>
 
 <body>
+    <header>
+        <h1 style="cursor: pointer" onclick="window.location.href='{% url 'tasks' %}'">TaskFlow <img 
+          style=" width: 26px; top: 10px; cursor: pointer" 
+          src="{% static 'img/logo.png' %}" 
+        /></h1>
+        <ul>
+            <li onclick="window.location.href='{% url 'tasks' %}'">Home</li>
+            <li>Minha Conta</li>
+            <li>Logout <img 
+              style=" width: 16px; top: 10px; cursor: pointer" 
+              src="{% static 'img/sair.png' %}" 
+              alt="" 
+              id="sair" 
+              onclick="window.location.href='{% url 'logout' %}'"
+            /></li>
+        </ul>
+    </header>
+
     <div id="container_h1">
         <h1>Editar Task</h1>
     </div>
@@ -59,7 +80,7 @@
             <ul id="membros_lista">
                 {% for usuario in usuarios %}
                 <li>
-                    <img src="{% static "img/user.png" %}" alt="">{{ usuario.primeiro_nome }} {{usuario.ultimo_nome}}
+                    <img src="{% static 'img/' %}{{ usuario.foto_perfil }}" alt="">{{ usuario.primeiro_nome }} {{ usuario.ultimo_nome }}
                 </li>
                 {% endfor %}
             </ul>
