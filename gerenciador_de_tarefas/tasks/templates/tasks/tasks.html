@@ -29,7 +29,7 @@
       /></h1>
       <ul>
           <li>Home</li>
-          <li>Minha Conta</li>
+          <li onclick="window.location.href='{% url 'minha_conta' %}'">Minha Conta</li>
           <li onclick="window.location.href='{% url 'logout' %}'">Logout <img 
             style=" width: 16px; top: 10px; cursor: pointer" 
             src="{% static 'img/sair.png' %}" 
@@ -62,7 +62,7 @@
             <p class="membros_campo">Membro(s)</p>
             <ul>
               <li>
-                <img src="{% static 'img/polar-bear.png' %}" />
+                <img src="{% static 'img/' %}{{task.atribuido_para.foto_perfil}}" />
                 {{ task.atribuido_para.primeiro_nome }} {{ task.atribuido_para.ultimo_nome }}
               </li>
             </ul>

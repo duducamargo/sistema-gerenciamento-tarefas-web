@@ -33,17 +33,8 @@ def login(request):
 
     return render(request, "cadastro/login.html")
 
-from django.contrib import messages
-from django.shortcuts import render, redirect
-from django.contrib.auth.hashers import make_password
-from .models import Usuario  # Certifique-se de importar o modelo correto
-from django.views.decorators.csrf import csrf_protect
-import random
-
 @csrf_protect
 def cadastro(request):
-    numero_aleatorio = random.randint(1, 3)
-
     if request.method == "POST":
         email = request.POST.get("email")
         
@@ -57,15 +48,9 @@ def cadastro(request):
         novo_usuario.email = email
         novo_usuario.senha = make_password(request.POST.get("senha"))
 
-        match numero_aleatorio:
-            case 1:
-                novo_usuario.foto_perfil = "foto_perfil_1.png"
-            case 2:
-                novo_usuario.foto_perfil = "polar-bear.png"
-            case 3:
-                novo_usuario.foto_perfil = "reindeer.png"
-            case _:
-                novo_usuario.foto_perfil = "foto_perfil_1.png"
+        fotos_disponiveis = ["foto_perfil_1.png", "polar-bear.png", "reindeer.png"]
+        numero_aleatorio = random.randint(0, len(fotos_disponiveis) - 1)
+        novo_usuario.foto_perfil = fotos_disponiveis[numero_aleatorio]
 
         novo_usuario.save()
 

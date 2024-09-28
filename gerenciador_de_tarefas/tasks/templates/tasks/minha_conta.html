@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'img/logo.png' %}"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/minha_conta.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <title>My Account</title>
+  </head>
+
+  <body>
+    <header>
+      <h1 style="cursor: pointer">
+        TaskFlow
+        <img
+          style="width: 26px; top: 10px; cursor: pointer"
+          src="{% static 'img/logo.png' %}"
+        />
+      </h1>
+      <ul>
+        <li>Home</li>
+        <li>Minha Conta</li>
+        <li>
+          Logout
+          <img
+            style="width: 16px; top: 10px; cursor: pointer"
+            src="{% static 'img/sair.png' %}"
+            alt=""
+            id="sair"
+          />
+        </li>
+      </ul>
+    </header>
+
+    <div id="container_h1">
+      <h1>My Account</h1>
+      <div>
+        <img
+          id="foto_perfil"
+          src="{% static 'img/' %}{{usuario.foto_perfil}}"
+          alt="Foto de Perfil"
+        />
+        <img id="random" src="{% static 'img/random.png' %}" alt="Random" />
+      </div>
+      <p>{{usuario.primeiro_nome}} {{usuario.ultimo_nome}}</p>
+    </div>
+
+    <div id="container">
+      <form action="{% url 'minha_conta' %}" method="post">
+        {% csrf_token %}
+        <h2>Alterar Dados</h2>
+
+        <input
+          type="hidden"
+          id="foto_perfil_atual"
+          name="foto_perfil_atual"
+          value="{{ usuario.foto_perfil }}"
+        />
+
+        <div id="campo_nome">
+          <input
+            type="text"
+            id="primeiro_nome"
+            name="primeiro_nome"
+            placeholder="Primeiro Nome"
+            value="{{usuario.primeiro_nome}}"
+          />
+          <input
+            type="text"
+            id="ultimo_nome"
+            name="ultimo_nome"
+            placeholder="Último Nome"
+            value="{{usuario.ultimo_nome}}"
+          />
+        </div>
+
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Email"
+          value="{{usuario.email}}"
+        />
+
+        <input
+          type="text"
+          name="confirmar_senha"
+          id="confirmar_senha"
+          placeholder="Senha Atual..."
+        />
+
+        <button type="submit" class="alterar">
+          Editar Dados
+          <img src="{% static 'img/editar.png' %}" alt="" />
+        </button>
+      </form>
+    </div>
+
+    <script>
+      document.getElementById("random").addEventListener("click", function () {
+        let imagens = ["foto_perfil_1.png", "polar-bear.png", "reindeer.png"];
+
+        let imagemElement = document.getElementById("foto_perfil");
+        let imagemAtual = imagemElement.src;
+
+        let nomeImagemAtual = imagemAtual.split("/").pop();
+
+        let indiceAtual = imagens.indexOf(nomeImagemAtual);
+
+        let proximoIndice = (indiceAtual + 1) % imagens.length;
+
+        imagemElement.src = "{% static 'img/' %}" + imagens[proximoIndice];
+
+        document.getElementById("foto_perfil_atual").value =
+          imagens[proximoIndice];
+      });
+    </script>
+  </body>
+</html>
