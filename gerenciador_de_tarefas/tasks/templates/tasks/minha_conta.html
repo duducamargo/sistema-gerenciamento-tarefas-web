@@ -35,7 +35,7 @@
         />
       </h1>
       <ul>
-        <li>Home</li>
+        <li onclick="window.location.href='{% url 'tasks' %}'">Home</li>
         <li>Minha Conta</li>
         <li>
           Logout
@@ -100,7 +100,7 @@
         />
 
         <input
-          type="text"
+          type="password"
           name="confirmar_senha"
           id="confirmar_senha"
           placeholder="Senha Atual..."
@@ -114,23 +114,26 @@
     </div>
 
     <script>
-      document.getElementById("random").addEventListener("click", function () {
-        let imagens = ["foto_perfil_1.png", "polar-bear.png", "reindeer.png"];
-
+      document.addEventListener("DOMContentLoaded", function () {
         let imagemElement = document.getElementById("foto_perfil");
-        let imagemAtual = imagemElement.src;
-
-        let nomeImagemAtual = imagemAtual.split("/").pop();
-
-        let indiceAtual = imagens.indexOf(nomeImagemAtual);
-
-        let proximoIndice = (indiceAtual + 1) % imagens.length;
-
-        imagemElement.src = "{% static 'img/' %}" + imagens[proximoIndice];
-
-        document.getElementById("foto_perfil_atual").value =
-          imagens[proximoIndice];
+        
+        document.getElementById("foto_perfil_atual").value = "{{ usuario.foto_perfil }}";
+    
+        document.getElementById("random").addEventListener("click", function () {
+          let imagens = ["foto_perfil_1.png", "polar-bear.png", "reindeer.png"];
+    
+          let imagemAtual = imagemElement.src;
+          let nomeImagemAtual = imagemAtual.split("/").pop();
+    
+          let indiceAtual = imagens.indexOf(nomeImagemAtual);
+          let proximoIndice = (indiceAtual + 1) % imagens.length;
+    
+          imagemElement.src = "{% static 'img/' %}" + imagens[proximoIndice];
+    
+          document.getElementById("foto_perfil_atual").value = imagens[proximoIndice];
+        });
       });
     </script>
+    
   </body>
 </html>
