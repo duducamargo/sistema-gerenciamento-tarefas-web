@@ -131,5 +131,6 @@ def minha_conta(request):
             usuario.ultimo_nome = request.POST.get("ultimo_nome")
             usuario.email = request.POST.get("email")
             usuario.foto_perfil = request.POST.get("foto_perfil_atual")
+            usuario.save()
 
     return render(request, "tasks/minha_conta.html", {"usuario": usuario})
