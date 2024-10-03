@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from cadastro.views import login_required
+from django.contrib.auth.hashers import check_password, make_password
 
 
 @login_required
@@ -105,12 +106,31 @@ def deletar_task(request, id):
     task = get_object_or_404(Task, id=id)
     if request.method == "POST":
         task.delete()
-        return redirect(
-            "tasks"
-        )  
+        return redirect("tasks")
     return redirect("tasks")
 
+
 def logout(request):
-    if 'usuario_id' in request.session:
-        del request.session['usuario_id'] 
-    return redirect('login') 
+    if "usuario_id" in request.session:
+        del request.session["usuario_id"]
+    return redirect("login")
+
+
+@csrf_protect
+def minha_conta(request):
+    usuario_id = request.session.get("usuario_id")
+    usuario = get_object_or_404(Usuario, id_usuario=usuario_id)
+
+    if not usuario_id:
+        return redirect("login")
+
+    if request.method == "POST":
+
+        if check_password(request.POST.get("confirmar_senha"), usuario.senha):
+            usuario.primeiro_nome = request.POST.get("primeiro_nome")
+            usuario.ultimo_nome = request.POST.get("ultimo_nome")
+            usuario.email = request.POST.get("email")
+            usuario.foto_perfil = request.POST.get("foto_perfil_atual")
+            usuario.save()
+
+    return render(request, "tasks/minha_conta.html", {"usuario": usuario})

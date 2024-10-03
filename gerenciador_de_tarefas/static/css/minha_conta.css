@@ -1,0 +1,427 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #001b38;
+    font-family: "Ubuntu", sans-serif;
+    color: #fff;
+}
+
+#container_h1 {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    height: 150px;
+    background-image: url("../img/cadastro.jpeg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#adicionar{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: end;
+    text-align: end;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#adicionar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 15%;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    background-color: #194b81;
+    color: #fff;
+    font-size: 20px;
+}
+
+#adicionar button:hover {
+    transition: 0.2s;
+    background-color: #235285a9;
+    height: 50px;
+    animation: pulse 2s infinite;
+}
+
+#adicionar button img {
+    width: 20px;
+    margin-left: 10px;
+}
+
+.tarefas_campo {
+    padding-bottom: 2px;
+    border-bottom: 2px solid #235385;
+}
+
+.membros_campo {
+    padding-bottom: 2px;
+    border-bottom: 2px solid #235385;
+}
+
+.status_campo {
+    padding-bottom: 2px;
+    margin-top: 15px;
+    border-bottom: 2px solid #235385;
+}
+
+
+h1 {
+    background-color: #001b38c4;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#container_tasks {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: center;
+}
+
+#container_tasks ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    margin-top: 0px;
+}
+
+#container_tasks ul li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+    list-style: none;
+    margin-top: 5px;
+}
+
+#container_tasks ul li img{
+    width: 15px;
+    margin-right: 5px;
+}
+
+.atribuicoes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    text-align: center;
+}
+
+.atribuicoes img {
+    background-color: #ffffff60;
+    border: 1px solid #fff;
+    padding: 2px;
+    border-radius: 50%;
+}
+
+.informacoes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    text-align: center;
+}
+
+
+.status {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    text-align: center;
+}
+
+
+
+
+.task {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 100px;
+    background-color: #0c1927;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #152b42;
+    margin-bottom: 20px;
+}
+
+.task:hover {
+    border-color: #235385;
+}
+
+.conteudo_task {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.data {
+    /* background-image: url("./gerenciador_de_tarefas/static/img/calendar.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 80%;
+    margin: auto;
+    border-right: 1px solid #fff;
+}
+
+.dia {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.mes {
+    margin-top: -40px;
+    font-size: 20px;
+}
+
+.Fazendo {
+    margin-top: 10px;
+    background-color: #ff8800b6;
+    border: 1px solid #ff8800;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    
+}
+
+.Concluida {
+    margin-top: 10px;
+    background-color: #008000b4;
+    border: 1px solid #008000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.Pendente {
+    margin-top: 10px;
+    background-color: #3c3c3cad;
+    border: 1px solid #3c3c3c;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+} 
+
+.editar {
+    width: 15%;
+}
+
+.editar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    background-color: #194b81;
+    color: #fff;
+    font-size: 20px;
+}
+
+.editar button:hover {
+    transition: 0.2s;
+    background-color: #235285a9;
+    width: 100%;
+    height: 50px;
+    animation: pulse 2s infinite;
+}
+
+.editar button img {
+    width: 20px;
+    margin-left: 10px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#container_h1 img {
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+    background-color: #0c1927;
+    padding: 15px;
+    width: 80px;
+    border: 1px solid #1a6dc5;
+    border-radius: 8px;
+}
+
+#container_h1 p {
+    background-color: #001b38c4;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+img#random {
+    width: 20px;
+    padding: 5px;
+    border-radius: 100%;
+    background-color: #001b38c4;
+    cursor: pointer;
+    margin-left: -20px;
+    margin-bottom: 5px;
+}
+
+img#random:hover {
+    background-color: #001b38;
+    transition: 0.3s;
+}
+
+
+select {
+    height: 55px;
+    border-radius: 8px;
+    border: 1px solid #0c1927;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #0c1927;
+    padding: 15px;
+    outline: none;
+    color: #fff;
+}
+
+form {
+    background-color: #001e3d;
+    height: 100%;
+    text-align: start;
+    width: 87%;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-top: 40px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+input {
+    height: 25px;
+    border-radius: 8px;
+    border: 1px solid #0c1927;
+    width: 96%;
+    margin-bottom: 20px;
+    background-color: #0c1927;
+    padding: 15px;
+    outline: none;
+    color: #fff;
+}
+
+input:focus {
+    border-color: #235385;
+}
+
+input::placeholder {
+    color: #ffffff86;
+}
+
+input:focus::placeholder {
+    color: #fff;
+}
+
+button {
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    background-color: #194b81;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button img {
+    width: 20px;
+    margin-left: 10px;
+}
+
+button:hover {
+    transition: 0.2s;
+    background-color: #235285a9;
+    width: 100%;
+    height: 50px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+form#editar {
+    width: 90%;
+    background-color: transparent;
+}
+
+#campo_nome {
+    display: flex;
+    width: 99%;
+    justify-content: space-between;
+}
+
+#campo_nome input {
+    width: 46%;
+}
